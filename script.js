@@ -11,27 +11,111 @@ const pages = {
     },
     doNotOpen: {
         text: "Do not open your Present package yet",
-        buttons: [{ text: "I Understand", target: "option" }]
+        buttons: [{ text: "I Understand", target: "doNotOpenRepeat" }]
     },
-    option: {
-        text: "Go to option A or to option B",
-        buttons: [
-            { text: "Go to A", target: "optionA" },
-            { text: "Go to B", target: "optionB" }
-        ]
+    doNotOpenRepeat: {
+        text: "I repeat, do NOT open your present yet",
+        buttons: [{ text: "I won’t", target: "thankYou" }]
     },
-    optionA: {
-        text: "Hello, this is the page of option A",
-        buttons: [{ text: "Go to see the best thing", target: "two_xl_asleep1" }]
+
+    thankYou: {
+        text: "Thank you. Anyway, I wanted to take this time to say happy birthday",
+        buttons: [{ text: "Go on…", target: "happyBirthdayName" }]
     },
-    optionB: {
-        text: "Hi there, welcome to page B for b-youtiful",
-        buttons: [{ text: "Go to page zebra", target: "two_xl_asleep1" }]
+
+    happyBirthdayName: {
+        text: "Happy Birthday [Name]",
+        buttons: [{ text: "thanks — can we move on?", target: "wantingPresent" }]
+    },
+
+    wantingPresent: {
+        text: "I bet you’re wanting to open your present soon",
+        buttons: [{ text: "yes I am", target: "aboutDigiCard" }]
+    },
+
+    aboutDigiCard: {
+        text: "Well, first I would like to tell you more about your Digi-card",
+        buttons: [{ text: "Got it!", target: "digiCardUseful" }]
+    },
+
+    digiCardUseful: {
+        text: "Digi-cards are more useful than normal cards, because they’re digital",
+        buttons: [{ text: "I like the sound of that", target: "notCheap" }]
+    },
+
+    notCheap: {
+        text: "Just because it’s digital, doesn’t mean that it’s cheap!",
+        buttons: [{ text: "Got it.", target: "notInexpensive" }]
+    },
+
+    notInexpensive: {
+        text: "It doesn’t even mean that it’s inexpensive!",
+        buttons: [{ text: "I understand, they seem fancy", target: "moreSpace" }]
+    },
+
+    moreSpace: {
+        text: "Digi-cards allow for more space than a standard physical card",
+        buttons: [{ text: "That’s really cool", target: "personalized" }]
+    },
+
+    personalized: {
+        text: "And, [Name], they can be easily personalized",
+        buttons: [{ text: "Hey you remembered my name!", target: "screamPrestige" }]
+    },
+
+    screamPrestige: {
+        text: "Digi-cards scream PRESTIGE",
+        buttons: [{ text: "Yeah they do", target: "premiumDigital" }]
+    },
+
+    premiumDigital: {
+        text: "Essentially, Digi-cards are premium digital cards delivered in high-fidelity format",
+        buttons: [{ text: "Got it", target: "goldPlated" }]
+    },
+
+    goldPlated: {
+        text: "All Digi-cards are created on hardware connected to the internet through gold-plated connectors",
+        buttons: [{ text: "That’s worth it", target: "backToYou" }]
+    },
+
+    backToYou: {
+        text: "Anyway, back to you",
+        buttons: [{ text: "Thank you", target: "hopeGoodBirthday" }]
+    },
+
+    hopeGoodBirthday: {
+        text: "Happy Birthday. I hope you have a very good birthday",
+        buttons: [{ text: "Thank you", target: "oneMoreThing" }]
+    },
+
+    oneMoreThing: {
+        text: "Before you open your present, I want to tell you one more thing about Digi-cards",
+        buttons: [{ text: "Got it", target: "sponsoredContent" }]
+    },
+
+    sponsoredContent: {
+        text: "Digi-cards allow for sponsored content, like coupons for Dunkin’ Donuts",
+        buttons: [{ text: "Sounds Great", target: "americaRuns" }]
+    },
+
+    americaRuns: {
+        text: "America runs on Dunkin!",
+        buttons: [{ text: "Indeed", target: "backToCard" }]
+    },
+
+    backToCard: {
+        text: "Anyway, back to your birthday card.",
+        buttons: [{ text: "Yes please", target: "guestAppearances" }]
+    },
+
+    guestAppearances: {
+        text: "Did you know Digi-cards allow for guest appearances?",
+        buttons: [{ text: "No, what?", target: "two_xl_asleep1" }]
     },
     two_xl_asleep1: {
         backgroundClass: 'two_xl_asleep',
-        text: "Oh wow who is that?",
-        buttons: [{ text: "my friend!", target: "two_xl_asleep2" }]
+        text: "That's right, I hired 2-XL!",
+        buttons: [{ text: "2-XL my friend!", target: "two_xl_asleep2" }]
     },
     two_xl_asleep2: {
         backgroundClass: 'two_xl_asleep',
@@ -168,6 +252,13 @@ function loadPage(pageKey, name) {
         cardBackground.className = 'card-background ' + page.backgroundClass;
     }
     cardContent.innerHTML = `<h2>${pageText}</h2>`;
+
+    // Add or remove the two-xl-text class based on the background
+    if (page.backgroundClass && page.backgroundClass.includes('two-xl')) {
+        cardContent.classList.add('two-xl-text');
+    } else {
+        cardContent.classList.remove('two-xl-text');
+    }
 
     page.buttons.forEach(button => {
         const btnElement = document.createElement('button');
