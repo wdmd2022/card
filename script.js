@@ -228,9 +228,80 @@ const pages = {
     final: {
         backgroundClass: 'open',
         text: "Hi, back to the card",
-        buttons: [{ text: "next page", target: "someOtherPage" }]
+        buttons: [{ text: "next page", target: "almostReady" }]
     },
-    // Add more pages if needed
+    almostReady: {
+        text: "Okay, are you almost ready to open your present?",
+        buttons: [
+            { text: "Yes I am", target: "aboutToOpen" },
+            { text: "No I am not", target: "aboutToOpen" }
+        ]
+    },
+
+    aboutToOpen: {
+        text: "Well, it’s about time to open your present",
+        buttons: [{ text: "I’m looking forward to doing that soon", target: "dontGetAhead" }]
+    },
+
+    dontGetAhead: {
+        text: "Now, [Name], don’t get ahead of yourself.",
+        buttons: [{ text: "I won’t", target: "digiCardCoolThing" }]
+    },
+
+    digiCardCoolThing: {
+        text: "Another cool thing about Digi-cards is that they are not limited in terms of how long they spend talking up a gift",
+        buttons: [
+            { text: "That’s great", target: "timeToImagine" },
+            { text: "I want to open my present now", target: "timeToImagine" }
+        ]
+    },
+
+    timeToImagine: {
+        text: "Okay, it’s time. Before you open the box, I want you to imagine opening the box with your bare hands.",
+        buttons: [{ text: "I promise, I’m imagining that", target: "nameThought" }]
+    },
+
+    nameThought: {
+        text: "i thought to myself, what would [Name] want?",
+        buttons: [{ text: "I admit, I’m hard to shop for", target: "usefulCoolUnexpected" }]
+    },
+
+    usefulCoolUnexpected: {
+        text: "I worked to think of something that would be 1. Useful, 2. Cool, 3. Unexpected",
+        buttons: [{ text: "1 out of 3 isn’t bad even", target: "notFountainPen" }]
+    },
+
+    notFountainPen: {
+        text: "I thought hard about ‘what do I have that is really good that I would thoughtfully recommend to someone and that isn’t a fountain pen?’",
+        buttons: [{ text: "I’m glad it’s not a fountain pen", target: "openIt" }]
+    },
+
+    openIt: {
+        text: "Open your present finally! There is a gift bag but no gift receipt/amazon card",
+        buttons: [{ text: "I opened it!", target: "randomPocketknife" }]
+    },
+
+    randomPocketknife: {
+        text: "This is totally random, but it’s a folding knife that’s the same pocketknife I’ve used for like 5 years and it’s really great, I've opened a million boxes and it is great for camping and garage stuff.",
+        buttons: [{ text: "That’s random, thanks I guess", target: "justifiedGift" }]
+    },
+
+    justifiedGift: {
+        text: "At first I thought, that’s too random, but then I justified it to myself — Dad always had knives in the garage among his tools, and I thought, I bet [Name] doesn’t have a cool and/or sturdy folding knife among his tools.",
+        buttons: [{ text: "got it", target: "presentStory" }]
+    },
+
+    presentStory: {
+        text: "And that is the story of how I picked your birthday present! I hope one day you find it useful for doing something cool, or cutting twine, or whatever!",
+        buttons: [{ text: "The end", target: "happyBirthdayEnd" }]
+    },
+
+    happyBirthdayEnd: {
+        backgroundClass: 'knife_party',
+        text: "Happy Birthday, [Name]! We love you lots.",
+        buttons: [{ text: "Again, thank you, good-bye", target: "finalPage" }] // Replace 'finalPage' with the actual next step
+    },
+
 };
 
 document.addEventListener('DOMContentLoaded', function() {

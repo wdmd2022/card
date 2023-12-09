@@ -26,6 +26,10 @@
     background-image: url('images/2-xl-displeased.jpg')
 }
 
+.card-background.knife_party {
+    background-image: url('images/knifeparty.jpg')
+}
+
 #cardContent {
     width: 80%; /* Text content fits into the middle 80% of the background */
     max-width: 500px; /* Adjust as needed for maximum width */
