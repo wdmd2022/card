@@ -14,6 +14,18 @@
     background-image: url('images/cardopen.jpg'); /* Path to open card image */
 }
 
+.card-background.two_xl {
+    background-image: url('images/2-xl.jpg')
+}
+
+.card-background.two_xl_asleep {
+    background-image: url('images/2-xl-asleep.jpg')
+}
+
+.card-background.two_xl_displeased {
+    background-image: url('images/2-xl-displeased.jpg')
+}
+
 #cardContent {
     width: 80%; /* Text content fits into the middle 80% of the background */
     max-width: 500px; /* Adjust as needed for maximum width */
