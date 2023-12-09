@@ -1,0 +1,29 @@
+.card-background {
+    transition: background-image 1s ease;
+    background-image: url('images/cardclosed.jpg'); /* Path to your closed card image */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh; /* Adjust as needed to control the height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-background.open {
+    background-image: url('images/cardopen.jpg'); /* Path to open card image */
+}
+
+#cardContent {
+    width: 80%; /* Text content fits into the middle 80% of the background */
+    max-width: 500px; /* Adjust as needed for maximum width */
+    background-color: rgba(255, 255, 255, 0.9); /* White with 80% opacity */
+    margin-bottom: 175px; /* Adjust this value to position content in the upper third */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Aligns content to the top */
+    height: 100vh;
+}
